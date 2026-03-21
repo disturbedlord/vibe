@@ -1,5 +1,8 @@
+import { caller } from "@/trpc/server";
+
 const Page = async () => {
-  return <div className="font-bold">hi</div>;
+  const data = await caller.createAI({ text: "hi" });
+  return <div className="font-bold">{JSON.stringify(data)}</div>;
 };
 
 export default Page;
